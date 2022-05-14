@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="car" class="com.fc.entity.Car"/>
+    <bean id="complexType" class="com.fc.entity.ComplexType">
+        <property name="objects">
+            <array>
+                <value>1</value>
+                <value>true</value>
+                <value>3.14</value>
+                <value>老村长</value>
+            </array>
+        </property>
+
+        <property name="list">
+            <list>
+                <value>水煮肉片</value>
+                <value>炒腐竹</value>
+                <value>花生米</value>
+                <value>雪花啤酒</value>
+                <value>素拼</value>
+            </list>
+        </property>
+
+        <property name="set">
+            <set>
+                <value>123</value>
+                <value>456</value>
+                <value>789</value>
+            </set>
+        </property>
+
+        <property name="map">
+            <map>
+                <entry key="王泽鹏" value="他住在你隔壁"/>
+                <entry key="退钱哥" value="日尼玛，退钱"/>
+                <entry key="起子哥" value-ref="car"/>
+            </map>
+        </property>
+    </bean>
+</beans>
