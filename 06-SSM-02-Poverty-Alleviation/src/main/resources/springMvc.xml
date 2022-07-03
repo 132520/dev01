@@ -13,12 +13,25 @@
     <!--扫描指定路径下的所有注解-->
     <context:component-scan base-package="com.fc.controller"/>
 
-    <mvc:annotation-driven/>
 
+    <mvc:annotation-driven/>
+    <mvc:default-servlet-handler/>
+    <!--文件解析器-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!--所有文件的最大size，（字节）-->
+        <property name="maxUploadSize" value="20000000"/>
+        <!--4kb缓存-->
+        <property name="maxInMemorySize" value="4096"/>
+        <!--单个文件的最大size-->
+        <property name="maxUploadSizePerFile" value="200000000000000"/>
+        <property name="defaultEncoding" value="defaultEncoding"/>
+    </bean>
+
+    <!--&lt;!&ndash;&lt;!&ndash;    跨域配置&ndash;&gt;&ndash;&gt;-->
     <mvc:cors>
-        <mvc:mapping path="/**" allowed-headers="*"/>
+        <mvc:mapping path="/**" allowed-origins="*" />
     </mvc:cors>
+
     <!--    用于导入其他配置文件-->
     <import resource="classpath:applicationContext.xml"/>
-
 </beans>
